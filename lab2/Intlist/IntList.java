@@ -79,10 +79,22 @@ public class IntList {
      * Returns a list consisting of the elements of A followed by the
      * *  elements of B.  May modify items of A. Don't use 'new'.
      */
-
+    /**
+     * concatenate A and B iteratively
+     * @param A
+     * @param B
+     * @return
+     */
     public static IntList dcatenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+        if(A == null) A.rest = B;
+        else{
+            IntList ptr = A;
+            while(ptr.rest != null){
+                ptr = ptr.rest;
+            }
+            ptr.rest = B;
+        }
+        return A;
     }
 
     /**
