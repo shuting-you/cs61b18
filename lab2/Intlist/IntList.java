@@ -102,8 +102,21 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+        IntList cate;
+        if(A == null) cate = null;
+        else cate = new IntList(A.first,null);
+        IntList ptrCa = cate;
+        while(A.rest != null){
+            A = A.rest;
+            ptrCa.rest = new IntList(A.first,null);
+            ptrCa = ptrCa.rest;
+        }
+        while(B != null){
+            ptrCa.rest = new IntList(B.first, null) ;
+            ptrCa = ptrCa.rest;
+            B = B.rest;
+        }
+        return cate;
     }
 
 
