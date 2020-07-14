@@ -3,8 +3,8 @@ public class Planet {
 	public double yyPos;
 	public double xxVel;
 	public double yyVel;
-	public double mess;
-	public String imagFileName;
+	public double mass;
+	public String imgFileName;
 
 	public Planet(double xP, double yP, double xV, 
 		double yV, double m, String img){
@@ -12,10 +12,17 @@ public class Planet {
 		yyPos = yP;
 		xxVel = xV;
 		yyVel = yV;
+		mass = m;
+		imgFileName = img;
 	}
 
 	public Planet(Planet p){
-		this = p;
+		this.xxPos = p.xxPos;
+		this.xxVel = p.xxVel;
+		this.yyPos = p.yyPos;
+		this.yyVel = p.yyVel;
+		this.mass = p.mass;
+		this.imgFileName = p.imgFileName;
 	}
 
 	
