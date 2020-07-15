@@ -55,6 +55,37 @@ public class NBody {
 				p.draw();
 			}
 
+			/*creating an animation
+			*/
+			//enable double buffering  to prevent flickering in the animation
+			StdDraw.enableDoubleBuffering();
+
+			int numOfPlanets = planets.length;
+			double t = 0;
+			while (t < T) {
+				double[] xForces = new double[numOfPlanets];
+				double[] yForces = new double[numOfPlanets];
+				for(int i = 0; i < numOfPlanets; i++) {
+					xForces[i] = planets[i].calcNetForceExertedByX(planets);
+					yForces[i] = planets[i].calcNetForceExertedByY(planets);
+					t += dt;
+				}
+				// update each planet's position, velocity, and acceleration
+				for (int i = 0; i < numOfPlanets; i++) {
+					planets[i].update(dt, xForces[i], yForces[i]);
+				}
+				// draw background picture and each planet
+				StdDraw.picture(0, 0, bgp);
+				for (Planet p : planets) {
+					p.draw();
+				}
+				// show the offScreen buffer due to the double buffering
+				StdDraw.show();
+				// pause the animation for 10 milliseconds
+				StdDraw.pause(10);
+			}
+
+
 		}
 
 }
