@@ -62,7 +62,7 @@ public class NBody {
 
 			int numOfPlanets = planets.length;
 			double t = 0;
-			while (t < T) {
+			while (t <= T) {
 				double[] xForces = new double[numOfPlanets];
 				double[] yForces = new double[numOfPlanets];
 				for(int i = 0; i < numOfPlanets; i++) {
@@ -85,7 +85,15 @@ public class NBody {
 				StdDraw.pause(10);
 			}
 
-
+			// print out the final state of universe in text file like the input
+			StdOut.printf("%d\n", numOfPlanets);
+			StdOut.printf("%.2e\n", radius);
+			for (int i = 0; i < numOfPlanets; i++) {
+				StdOut.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
+					planets[i].xxPos, planets[i].yyPos, planets[i].xxVel, planets[i].yyVel,
+					planets[i].mass, planets[i].imgFileName);
+			}
+		
 		}
 
 }
