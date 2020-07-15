@@ -82,7 +82,7 @@ public class Planet {
 	draw the planet at its appropriate position
 	*/
 	public void draw() {
-		StdDraw.picture(xxPos, yyPos, "image/" + imgFileName);
+		StdDraw.picture(xxPos, yyPos, "images/" + imgFileName);
 	}
 
 }
