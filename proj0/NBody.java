@@ -62,7 +62,7 @@ public class NBody {
 
 			int numOfPlanets = planets.length;
 			double t = 0;
-			while (t <= T) {
+			while (t < T) {
 				double[] xForces = new double[numOfPlanets];
 				double[] yForces = new double[numOfPlanets];
 				for(int i = 0; i < numOfPlanets; i++) {
