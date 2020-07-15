@@ -31,4 +31,30 @@ public class NBody {
 			return planets;
 		}
 
+		public static void main(String[] args) {
+			double T = Double.parseDouble(args[0]);
+			double dt = Double.parseDouble(args[1]);
+			String filename = args[2];
+
+			double radius = NBody.readRadius(filename);
+			Planet[] planets = NBody.readPlanets(filename);
+
+
+			/*Draw the background
+			*/
+			// the address of the background picture
+			String bgp = "images/starfield.jpg";
+			//set up the scale of the universe
+			StdDraw.setScale(-radius, radius);
+			/*clears the drawing window
+			*/
+			StdDraw.clear();
+			StdDraw.picture(0, 0, bgp);
+			//draw all of the planets
+			for (Planet p : planets) {
+				p.draw();
+			}
+
+		}
+
 }
