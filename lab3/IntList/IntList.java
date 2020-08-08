@@ -34,6 +34,25 @@ public class IntList {
     }
 
     /**
+     *
+     * @param A destructive
+     * @return the reverse of A
+     */
+    public static IntList reverse(IntList A) {
+        if (A == null || A.rest == null) return A;
+        IntList ptr = A.rest;
+        IntList fir = A;
+        A.rest = null;
+        while (ptr != null) {
+            A = ptr;
+            ptr = ptr.rest;
+            A.rest = fir;
+            fir = A;
+        }
+        return A;
+    }
+
+    /**
      * Returns a list equal to L with all elements squared. Destructive.
      */
     public static void dSquareList(IntList L) {
@@ -132,19 +151,6 @@ public class IntList {
 
         return cate;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
